@@ -26,7 +26,6 @@ import javafx.stage.Stage;
 
 public class FXMLDocumentController implements Initializable {
 
-    // LETS NAME ALL COMPONENTS WE HAVE ON ADMIN PAGE 
     @FXML
     private AnchorPane main_form;
 
