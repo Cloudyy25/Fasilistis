@@ -33,10 +33,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 
-/**
- *
- * @author WINDOWS 10
- */
 public class AddPJFormController implements Initializable {
     private AlertMessage alert = new AlertMessage();
     private Image image;
