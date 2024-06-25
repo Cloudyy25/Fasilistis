@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Fasilistis;
 
 import java.net.URL;
@@ -14,10 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
-/**
- *
- * @author WINDOWS 10
- */
 public class PJCardController implements Initializable {
     private Image image;
     @FXML
