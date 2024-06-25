@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fasilistis.UserMainFormController">
+   <children>
+      <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="144.0" layoutY="64.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="40.0" prefWidth="1100.0" stylesheets="@../design/MainFormDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="-58.0" layoutY="-86.0" prefHeight="40.0" prefWidth="214.0" styleClass="bg-color-2" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="title" layoutX="84.0" layoutY="10.0" text="Fasilistis" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Circle fx:id="top_profile" fill="DODGERBLUE" layoutX="1010.0" layoutY="22.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="77.0" />
+                        <Label layoutX="1036.0" layoutY="13.0" text="Active" AnchorPane.rightAnchor="31.0" />
+                        <Circle fill="#24c756" layoutX="1081.0" layoutY="22.0" radius="5.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="14.0" />
+                        <Label layoutX="672.5" layoutY="11.0" text="Selamat Datang," AnchorPane.rightAnchor="340.5" />
+                        <Label fx:id="top_username" layoutX="747.0" layoutY="11.0" prefHeight="19.0" prefWidth="114.0" text="-" AnchorPane.rightAnchor="215.0">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="date_time" alignment="CENTER" layoutX="441.0" layoutY="12.0" prefHeight="17.0" prefWidth="187.0" text="MM:DD:YYYY" AnchorPane.rightAnchor="472.0" />
+                        <Label fx:id="current_form" layoutX="233.0" layoutY="12.5" prefHeight="21.0" prefWidth="209.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Dashboard Form" AnchorPane.leftAnchor="233.0" AnchorPane.topAnchor="12.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="logout_btn" layoutX="885.0" layoutY="8.0" mnemonicParsing="false" onAction="#logoutBtn" prefHeight="25.0" prefWidth="79.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Logout" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="8.0" />
+                     </children>
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="border-top" />
+                     </styleClass>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="560.0" prefWidth="214.0" styleClass="bg-color-2" stylesheets="@../design/UserMainFormDesign.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label layoutX="56.0" layoutY="109.0" text="User ID:" textFill="WHITE" />
+                        <Label fx:id="nav_userid" layoutX="116.0" layoutY="108.0" prefHeight="19.0" prefWidth="71.0" text="1" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Line endX="88.0" layoutX="113.0" layoutY="152.0" startX="-100.0" stroke="WHITE" />
+                        <Label layoutX="13.0" layoutY="162.0" text="Feature" textFill="WHITE" />
+                        <Button fx:id="dashboard_btn" layoutX="7.0" layoutY="187.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Home">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="HOME" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="pj_btn" layoutX="7.0" layoutY="237.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Daftar Penanggung Jawab">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="BRIEFCASE" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="peminjaman_btn" layoutX="7.0" layoutY="287.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Pinjam Ruangan">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="CALENDAR" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Label layoutX="13.0" layoutY="437.0" text="Profile" textFill="WHITE" />
+                        <Button fx:id="profile_btn" layoutX="7.0" layoutY="462.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Profile Setting">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="COGS" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="chat_btn" layoutX="7.0" layoutY="389.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Chat Admin">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="ENVELOPE" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="riwayat_btn" layoutX="7.0" layoutY="337.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="40.0" prefWidth="200.0" styleClass="nav-btn-1" stylesheets="@../design/MainFormDesign.css" text="Riwayat Peminjaman">
+                           <graphic>
+                              <FontAwesomeIcon glyphName="CLIPBOARD" size="1.5em" />
+                           </graphic>
+                        </Button>
+                        <Label layoutX="41.0" layoutY="127.0" text="Username:" textFill="WHITE" />
+                        <Label fx:id="nav_username" layoutX="116.0" layoutY="126.0" prefHeight="19.0" prefWidth="74.0" text="1" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="94.0" fitWidth="123.0" layoutX="46.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/logo2.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane fx:id="home_form" layoutX="161.0" layoutY="112.0" prefHeight="560.0" prefWidth="886.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="265.0" prefWidth="542.0" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Peminjaman Gedung">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="home_peminjaman_tableView" layoutX="13.0" layoutY="51.0" prefHeight="200.0" prefWidth="517.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="51.0">
+                                      <columns>
+                                        <TableColumn fx:id="home_peminjaman_id" prefWidth="75.0" text="ID Peminjaman" />
+                                        <TableColumn fx:id="home_peminjaman_nama" prefWidth="114.0" text="Nama User" />
+                                          <TableColumn fx:id="home_peminjaman_gedung" prefWidth="119.0" text="Gedung" />
+                                          <TableColumn fx:id="home_peminjaman_lantai" prefWidth="92.0" text="Lantai" />
+                                          <TableColumn fx:id="home_peminjaman_ruang" prefWidth="75.0" text="Ruang" />
+                                          <TableColumn fx:id="home_peminjaman_tanggal" prefWidth="75.0" text="Tanggal" />
+                                          <TableColumn fx:id="home_peminjaman_status" prefWidth="75.0" text="Status" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="573.0" layoutY="17.0" prefHeight="526.0" prefWidth="299.0" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <AnchorPane layoutX="12.0" layoutY="14.0" prefHeight="498.0" prefWidth="276.0" styleClass="bg-color-2" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="14.0">
+                                       <children>
+                                          <Label alignment="TOP_CENTER" layoutX="28.0" layoutY="31.0" prefHeight="41.0" prefWidth="221.0" text="SELAMAT DATANG" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="TOP_CENTER" layoutX="68.0" layoutY="66.0" prefHeight="41.0" prefWidth="142.0" text="DI APLIKASI" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="TOP_CENTER" layoutX="78.0" layoutY="104.0" prefHeight="41.0" prefWidth="121.0" text="FASILISTIS" textAlignment="CENTER" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Text fill="WHITE" layoutX="24.0" layoutY="177.0" lineSpacing="4.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Silakan gunakan aplikasi ini sebaik mungkin. Anda dapat memanfaatkan menu Pinjam Ruangan untuk melakukan peminjaman sesuai dengan kebutuhan Anda. Apabila menemukan kendala pada aplikasi atau memerlukan persetujuan peminjaman ruangan secepat mungkin, silakan menghubungi admin pada menu Chat Admin" textAlignment="CENTER" wrappingWidth="231.0">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="14.0" layoutY="298.0" prefHeight="245.0" prefWidth="542.0" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="330.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Riwayat Peminjaman Anda">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="home_peminjaman_anda_tableView" layoutX="13.0" layoutY="52.0" prefHeight="185.0" prefWidth="517.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0">
+                                       <columns>
+                                          <TableColumn fx:id="home_peminjaman_anda_id" prefWidth="99.0" text="ID Peminjaman" />
+                                          <TableColumn fx:id="home_peminjaman_anda_gedung" prefWidth="90.0" text="Gedung" />
+                                          <TableColumn fx:id="home_peminjaman_anda_lantai" prefWidth="109.0" text="Lantai" />
+                                          <TableColumn fx:id="home_peminjaman_anda_ruang" prefWidth="74.0" text="Ruang" />
+                                          <TableColumn fx:id="home_peminjaman_anda_tanggal" prefWidth="79.0" text="Tanggal" />
+                                          <TableColumn fx:id="home_peminjaman_anda_status" prefWidth="65.0" text="Status" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="pj_form" layoutX="324.0" layoutY="144.0" prefHeight="560.0" prefWidth="886.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="12.0" prefHeight="537.0" prefWidth="868.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="12.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Daftar Penanggung Jawab">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fx:id="pj_scrollPane" layoutX="11.0" layoutY="57.0" prefHeight="466.0" prefWidth="846.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="57.0">
+                                       <content>
+                                          <GridPane fx:id="pj_gridPane" prefHeight="19.0" prefWidth="107.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                          </GridPane>
+                                       </content></ScrollPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="peminjaman_form" layoutX="5.0" layoutY="5.0" prefHeight="560.0" prefWidth="886.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="12.0" prefHeight="537.0" prefWidth="430.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="12.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Detail Peminjaman Ruangan">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="41.0" layoutY="68.0" text="Nama:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_nama" layoutX="106.0" layoutY="68.0" prefHeight="19.0" prefWidth="122.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="68.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="40.0" layoutY="98.0" text="Email:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_email" layoutX="106.0" layoutY="98.0" prefHeight="19.0" prefWidth="115.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="98.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="42.0" layoutY="393.0" text="Ruang:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_hasilruang" layoutX="107.0" layoutY="391.0" prefHeight="19.0" prefWidth="163.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="243.0" AnchorPane.topAnchor="391.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="41.0" layoutY="335.0" text="Gedung:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_hasilgedung" layoutX="108.0" layoutY="337.0" prefHeight="19.0" prefWidth="156.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="249.0" AnchorPane.topAnchor="337.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="43.0" layoutY="365.0" text="Lantai:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_hasillantai" layoutX="107.0" layoutY="365.0" prefHeight="19.0" prefWidth="154.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="252.0" AnchorPane.topAnchor="365.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="42.0" layoutY="421.0" text="Tanggal:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="peminjaman_hasiltanggal" layoutX="106.0" layoutY="420.0" prefHeight="19.0" prefWidth="157.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="420.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="cekbtn" layoutX="76.0" layoutY="234.0" mnemonicParsing="false" onAction="#peminjamanConfirmBtn" prefHeight="35.0" prefWidth="108.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Cek Ruangan" />
+                                    <Label layoutX="41.0" layoutY="128.0" text="Gedung:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="peminjaman_gedung" layoutX="106.0" layoutY="124.0" onAction="#getGedung" prefHeight="25.0" prefWidth="148.0" promptText="Pilih Gedung" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" />
+                                    <Label layoutX="43.0" layoutY="191.0" text="Tanggal:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="peminjaman_tanggal" layoutX="106.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" />
+                                    <Button fx:id="resetbtn" layoutX="223.0" layoutY="234.0" mnemonicParsing="false" onAction="#peminjamanClearBtn" prefHeight="35.0" prefWidth="108.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Reset" />
+                                    <Label layoutX="42.0" layoutY="160.0" text="Lantai:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="peminjaman_lantai" layoutX="106.0" layoutY="156.0" prefHeight="25.0" prefWidth="150.0" promptText="Pilih Lantai" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" />
+                                    <Button fx:id="peminjamanBtn" layoutX="130.0" layoutY="455.0" mnemonicParsing="false" onAction="#AjukanPeminjamanBtn" prefHeight="35.0" prefWidth="153.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Ajukan Peminjaman" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="detailGedung" layoutX="454.0" layoutY="12.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="12.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Details">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="denah" fitHeight="447.0" fitWidth="363.0" layoutX="24.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/denah.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g2l4" layoutX="453.0" layoutY="12.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 2 Lantai 4">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b241" layoutX="117.0" layoutY="59.0" maxHeight="208.0" maxWidth="225.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="110.0" prefWidth="163.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="241">
+                                       <graphic>
+                                          <ImageView fx:id="i241" fitHeight="83.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b242" layoutX="38.0" layoutY="244.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="110.0" prefWidth="163.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="242">
+                                       <graphic>
+                                          <ImageView fx:id="i242" fitHeight="88.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g2l5" layoutX="452.0" layoutY="12.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 2 Lantai 5">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b252" contentDisplay="TOP" layoutX="216.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="252">
+                                       <graphic>
+                                          <ImageView fx:id="i252" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b254" layoutX="45.0" layoutY="181.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="254">
+                                       <graphic>
+                                          <ImageView fx:id="i254" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b253" contentDisplay="TOP" layoutX="142.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="253">
+                                       <graphic>
+                                          <ImageView fx:id="i253" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b251" contentDisplay="TOP" layoutX="290.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="251">
+                                       <graphic>
+                                          <ImageView fx:id="i251" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b255" layoutX="45.0" layoutY="254.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="255">
+                                       <graphic>
+                                          <ImageView fx:id="i255" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b257" layoutX="45.0" layoutY="399.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="257">
+                                       <graphic>
+                                          <ImageView fx:id="i257" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b256" layoutX="45.0" layoutY="326.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="256">
+                                       <graphic>
+                                          <ImageView fx:id="i256" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g2l6" layoutX="453.0" layoutY="12.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 2 Lantai 6">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b262" contentDisplay="TOP" layoutX="216.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="262">
+                                       <graphic>
+                                          <ImageView fx:id="i262" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b264" layoutX="45.0" layoutY="181.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="264">
+                                       <graphic>
+                                          <ImageView fx:id="i264" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b263" contentDisplay="TOP" layoutX="142.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="263">
+                                       <graphic>
+                                          <ImageView fx:id="i263" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b261" contentDisplay="TOP" layoutX="290.0" layoutY="77.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="85.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="261">
+                                       <graphic>
+                                          <ImageView fx:id="i261" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b265" layoutX="45.0" layoutY="254.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="265">
+                                       <graphic>
+                                          <ImageView fx:id="i265" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b267" layoutX="45.0" layoutY="399.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="267">
+                                       <graphic>
+                                          <ImageView fx:id="i267" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b266" layoutX="45.0" layoutY="326.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="266">
+                                       <graphic>
+                                          <ImageView fx:id="i266" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="gadt" layoutX="453.0" layoutY="13.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Auditorium">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="ba" contentDisplay="TOP" layoutX="34.0" layoutY="83.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="331.0" prefWidth="324.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="Auditorium">
+                                       <graphic>
+                                          <ImageView fx:id="ia" fitHeight="296.0" fitWidth="287.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g3l2" layoutX="454.0" layoutY="12.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 3 Lantai 2">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b321" contentDisplay="RIGHT" layoutX="248.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="321">
+                                       <graphic>
+                                          <ImageView fx:id="i321" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b323" contentDisplay="RIGHT" layoutX="248.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="323">
+                                       <graphic>
+                                          <ImageView fx:id="i323" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b327" contentDisplay="RIGHT" layoutX="249.0" layoutY="105.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="327">
+                                       <graphic>
+                                          <ImageView fx:id="i327" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b325" contentDisplay="RIGHT" layoutX="249.0" layoutY="179.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="83.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="325">
+                                       <graphic>
+                                          <ImageView fx:id="i325" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b322" layoutX="42.0" layoutY="349.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="322">
+                                       <graphic>
+                                          <ImageView fx:id="i322" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b324" layoutX="42.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="324">
+                                       <graphic>
+                                          <ImageView fx:id="i324" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b328" layoutX="42.0" layoutY="104.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="328">
+                                       <graphic>
+                                          <ImageView fx:id="i328" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b326" layoutX="42.0" layoutY="177.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="326">
+                                       <graphic>
+                                          <ImageView fx:id="i326" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g3l3" layoutX="452.0" layoutY="13.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 3 Lantai 3">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b331" contentDisplay="RIGHT" layoutX="248.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="331">
+                                       <graphic>
+                                          <ImageView fx:id="i331" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b333" contentDisplay="RIGHT" layoutX="248.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="333">
+                                       <graphic>
+                                          <ImageView fx:id="i333" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b337" contentDisplay="RIGHT" layoutX="249.0" layoutY="105.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="337">
+                                       <graphic>
+                                          <ImageView fx:id="i337" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b335" contentDisplay="RIGHT" layoutX="249.0" layoutY="179.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="83.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="335">
+                                       <graphic>
+                                          <ImageView fx:id="i335" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b332" layoutX="42.0" layoutY="349.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="332">
+                                       <graphic>
+                                          <ImageView fx:id="i332" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b334" layoutX="42.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="334">
+                                       <graphic>
+                                          <ImageView fx:id="i334" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b338" layoutX="42.0" layoutY="104.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="338">
+                                       <graphic>
+                                          <ImageView fx:id="i338" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b336" layoutX="42.0" layoutY="177.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="336">
+                                       <graphic>
+                                          <ImageView fx:id="i336" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="g3l4" layoutX="454.0" layoutY="13.0" prefHeight="537.0" prefWidth="411.0" stylesheets="@../design/MainFormDesign.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Gedung 3 Lantai 4">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="b341" contentDisplay="RIGHT" layoutX="248.0" layoutY="348.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="341">
+                                       <graphic>
+                                          <ImageView fx:id="i341" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b343" contentDisplay="RIGHT" layoutX="248.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="343">
+                                       <graphic>
+                                          <ImageView fx:id="i343" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b347" contentDisplay="RIGHT" layoutX="249.0" layoutY="105.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="347">
+                                       <graphic>
+                                          <ImageView fx:id="i347" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b345" contentDisplay="RIGHT" layoutX="249.0" layoutY="179.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="83.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="345">
+                                       <graphic>
+                                          <ImageView fx:id="i345" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b342" layoutX="42.0" layoutY="349.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="342">
+                                       <graphic>
+                                          <ImageView fx:id="i342" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b344" layoutX="42.0" layoutY="276.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="344">
+                                       <graphic>
+                                          <ImageView fx:id="i344" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b348" layoutX="42.0" layoutY="104.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="348">
+                                       <graphic>
+                                          <ImageView fx:id="i348" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="b346" layoutX="42.0" layoutY="177.0" mnemonicParsing="false" onAction="#buttonAction" onMouseClicked="#onMouseClicked" onMouseEntered="#onMouseEntered" onMouseExited="#onMouseExited" prefHeight="85.0" prefWidth="120.0" styleClass="btn-room" stylesheets="@../Design/MainFormDesign.css" text="346">
+                                       <graphic>
+                                          <ImageView fx:id="i346" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../image/room.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="riwayat_form" layoutY="-1.0" prefHeight="560.0" prefWidth="886.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="9.0" layoutY="12.0" prefHeight="537.0" prefWidth="868.0" stylesheets="@../design/UserMainFormDesign.css">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Riwayat Peminjaman Anda">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <TableView fx:id="peminjaman_anda_tableView" layoutX="13.0" layoutY="54.0" prefHeight="430.0" prefWidth="843.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="12.0">
+                                       <columns>
+                                          <TableColumn fx:id="peminjaman_anda_id" prefWidth="99.0" text="ID Peminjaman" />
+                                          <TableColumn fx:id="peminjaman_anda_gedung" prefWidth="90.0" text="Gedung" />
+                                          <TableColumn fx:id="peminjaman_anda_lantai" prefWidth="109.0" text="Lantai" />
+                                          <TableColumn fx:id="peminjaman_anda_ruang" prefWidth="74.0" text="Ruang" />
+                                          <TableColumn fx:id="peminjaman_anda_tanggal" prefWidth="79.0" text="Tanggal" />
+                                          <TableColumn fx:id="peminjaman_anda_status" prefWidth="65.0" text="Status" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <Button fx:id="csv_peminjaman" layoutX="14.0" layoutY="498.0" mnemonicParsing="false" onAction="#ExportCSVpeminjaman" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Export File (.csv)" />
+                                    <Button fx:id="hapus_peminjaman" layoutX="715.0" layoutY="498.0" mnemonicParsing="false" onAction="#hapusPeminjaman" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Hapus Peminjaman" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="chat_form" prefHeight="560.0" prefWidth="886.0" visible="false">
+                           <children>
+                              <AnchorPane layoutX="573.0" layoutY="17.0" prefHeight="526.0" prefWidth="857.0" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <TextArea fx:id="area_chat" layoutX="14.0" layoutY="49.0" prefHeight="402.0" prefWidth="827.0" />
+                                    <TextField fx:id="text_chat" layoutX="14.0" layoutY="461.0" prefHeight="25.0" prefWidth="707.0" />
+                                    <Button fx:id="kirim_chat" layoutX="744.0" layoutY="461.0" mnemonicParsing="false" onAction="#msg_sendActionPerformed" prefHeight="25.0" prefWidth="98.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Kirim Pesan" />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="24.0" layoutY="24.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Chat Admin">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="profile_form" layoutX="114.0" layoutY="102.0" prefHeight="560.0" prefWidth="886.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane layoutX="14.0" layoutY="17.0" prefHeight="527.0" prefWidth="274.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Circle fx:id="profile_circle" fill="#3c434a" layoutX="137.0" layoutY="95.0" radius="81.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Button fx:id="profile_importBtn" layoutX="62.0" layoutY="184.0" mnemonicParsing="false" onAction="#profileImportBtn" prefHeight="30.0" prefWidth="150.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Import" />
+                                    <Label layoutX="69.0" layoutY="254.0" text="User ID:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="profile_label_userid" layoutX="126.0" layoutY="254.0" prefHeight="19.0" prefWidth="135.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="56.0" layoutY="282.0" text="Username:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="profile_label_name" layoutX="126.0" layoutY="282.0" prefHeight="19.0" prefWidth="135.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="82.0" layoutY="309.0" text="Email:">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="profile_label_email" layoutX="127.0" layoutY="312.0" prefHeight="19.0" prefWidth="135.0">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="307.0" layoutY="17.0" prefHeight="527.0" prefWidth="565.0" stylesheets="@../design/MainFormDesign.css" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="307.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="17.0">
+                                 <styleClass>
+                                    <String fx:value="white-bg" />
+                                    <String fx:value="shadow" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" styleClass="header-2" stylesheets="@../design/UserMainFormDesign.css" text="Edit Profile">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <FontAwesomeIcon glyphName="EDIT" layoutX="124.0" layoutY="37.0" size="2em" />
+                                    <Label layoutX="117.0" layoutY="98.0" text="User ID:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="profile_userid" layoutX="189.0" layoutY="96.0" prefHeight="25.0" prefWidth="183.0" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="193.0" AnchorPane.topAnchor="96.0" />
+                                    <Label layoutX="106.0" layoutY="138.0" text="Username:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="profile_name" layoutX="189.0" layoutY="136.0" prefHeight="25.0" prefWidth="306.0" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" AnchorPane.leftAnchor="189.0" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="136.0" />
+                                    <FontAwesomeIcon glyphName="COGS" layoutX="293.0" layoutY="478.0" opacity="0.23" size="20em" AnchorPane.bottomAnchor="14.714279174804688" AnchorPane.rightAnchor="14.857147216796875" />
+                                    <Button fx:id="profile_updateBtn" layoutX="204.0" layoutY="276.0" mnemonicParsing="false" onAction="#profileUpdateBtn" prefHeight="40.0" prefWidth="156.0" styleClass="btn-3" stylesheets="@../design/UserMainFormDesign.css" text="Update" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="276.0" />
+                                    <Label layoutX="106.0" layoutY="212.0" text="Password:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="profile_password" layoutX="188.0" layoutY="212.0" prefHeight="25.0" prefWidth="307.0" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" />
+                                    <Label layoutX="133.0" layoutY="176.0" text="Email:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="profile_email" layoutX="188.0" layoutY="174.0" prefHeight="25.0" prefWidth="307.0" styleClass="textfield-2" stylesheets="@../design/UserMainFormDesign.css" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -1,0 +1,58 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 27, 2024, 9:08:01 PM
+    Author     : Asus
+*/
+.white-bg {
+  -fx-background-color: #fff;
+}
+
+.radius {
+  -fx-background-radius: 6px;
+}
+
+.textfield-1 {
+  -fx-border-color: #000;
+  -fx-border-width: 0.3px;
+  -fx-font-family: Tahoma;
+}
+.textfield-1:focused {
+  -fx-border-color: linear-gradient(to bottom right, #b3988d, #8f7a71);
+  -fx-border-width: 1px;
+}
+
+.textfield-3 {
+  -fx-border-color: #000;
+  -fx-border-width: 0.3px;
+  -fx-font-family: Tahoma;
+}
+.textfield-3:focused {
+  -fx-border-color: linear-gradient(to bottom right, #94dcd0, #7fbbb1);
+  -fx-border-width: 1px;
+}
+
+.btn-1 {
+  -fx-background-color: linear-gradient(to bottom right, #b3988d, #8f7a71);
+  -fx-cursor: hand;
+  -fx-text-fill: #fff;
+  -fx-font-size: 14px;
+  -fx-font-family: Arial;
+}
+.btn-1:hover {
+  -fx-background-color: linear-gradient(to bottom right, #c1b4b0, #bb7d65);
+}
+
+.btn-3 {
+  -fx-background-color: linear-gradient(to bottom right, #94dcd0, #7fbbb1);
+  -fx-cursor: hand;
+  -fx-text-fill: #fff;
+  -fx-font-size: 14px;
+  -fx-font-family: Arial;
+}
+.btn-3:hover {
+  -fx-background-color: linear-gradient(to bottom right, #449c8e, #24b39c);
+}
+
